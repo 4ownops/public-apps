@@ -1,0 +1,13 @@
+{{- if .Values.ingress.create -}}
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: "{{ include "jellyfin.name" . }}.{{ .Values.ingress.domain }}-ssl"
+spec:
+  secretName: "{{ include "jellyfin.name" . }}.{{ .Values.ingress.domain }}-ssl"
+  issuerRef:
+    name: {{ .Values.ingress.sslCLusterIssuerName }}
+    kind: ClusterIssuer
+  dnsNames:
+    - "{{ .Values.ingress.hostname }}.{{ .Values.ingress.domain }}"
+{{- end -}}

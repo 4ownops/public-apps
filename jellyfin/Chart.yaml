@@ -1,0 +1,11 @@
+apiVersion: v2
+appVersion: "10.8.12"
+description: A jellyfin helm chart for selhosted k3s cluster
+home: https://helm.sh/helm
+maintainers:
+  - email: tomas.vkz@gmail.com
+    name: Artem Tkachuk
+name: jellyfin
+sources:
+  - https://github.com/helm/helm
+version: 0.0.1

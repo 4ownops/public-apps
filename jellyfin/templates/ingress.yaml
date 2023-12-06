@@ -1,0 +1,21 @@
+{{- if .Values.ingress.create -}}
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+
+metadata:
+  name: {{ include "jellyfin.name" . }}-https
+spec:
+  entryPoints:
+    - websecure
+  tls:
+    secretName: {{ include "jellyfin.name" . }}.{{ .Values.ingress.domain }}-ssl
+    options:
+      name: tlsoptions
+      namespace: kube-system
+  routes:
+  - match: Host(`{{ .Values.ingress.hostname }}.{{ .Values.ingress.domain }}`)
+    kind: Rule
+    services:
+    - name: {{ include "jellyfin.name" . }}-tcp
+      port: 8096
+{{- end -}}

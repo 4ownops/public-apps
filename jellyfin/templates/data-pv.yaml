@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ include "jellyfin.name" . }}-pv-data
+  labels:
+    type: local
+spec:
+  storageClassName: local-path
+  volumeMode: Filesystem
+  capacity:
+    storage: 1800Gi
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  local:
+    path: {{ .Values.dataLocalPath | quote }}
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: {{ .Values.nodeAffinity.labelKey }}
+          operator: In
+          values:
+          - {{ .Values.nodeAffinity.labelValue | quote }}
