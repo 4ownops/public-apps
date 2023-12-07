@@ -9,6 +9,6 @@ sources:
   - https://github.com/minio/operator
 version: 0.0.1
 dependencies:
-  - name: "minio-operator/minio-operator"
-    version: "4.3.7"
-    repository: "https://operator.min.io"
+  - name: "operator"
+    version: "5.0.6"
+    repository: "https://operator.min.io/"
