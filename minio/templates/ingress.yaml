@@ -16,6 +16,6 @@ spec:
   - match: Host(`{{ .Values.ingress.hostname }}.{{ .Values.ingress.domain }}`)
     kind: Rule
     services:
-    - name: operator
-      port: 4221
+    - name: console
+      port: 9090
 {{- end -}}
