@@ -1,0 +1,15 @@
+nameOverride: ""
+fullnameOverride: ""
+
+domain: home
+
+ingress:
+  create: false
+  sslCLusterIssuerName: letsencrypt-staging
+  hostname: jellyfin
+  domain: home
+
+nodeAffinity:
+  create: true
+  labelKey: "share"
+  labelValue: "true"

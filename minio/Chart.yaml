@@ -1,0 +1,14 @@
+apiVersion: v2
+appVersion: "4.3.7"
+description: A minio helm chart for selhosted k3s cluster
+maintainers:
+  - email: tomas.vkz@gmail.com
+    name: Artem Tkachuk
+name: minio
+sources:
+  - https://github.com/minio/operator
+version: 0.0.1
+dependencies:
+  - name: "minio-operator/minio-operator"
+    version: "4.3.7"
+    repository: "https://operator.min.io"
