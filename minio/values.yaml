@@ -6,7 +6,7 @@ domain: home
 ingress:
   create: false
   sslCLusterIssuerName: letsencrypt-staging
-  hostname: jellyfin
+  hostname: minio
   domain: home
 
 nodeAffinity:
